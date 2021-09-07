@@ -1,6 +1,6 @@
 import { Phase } from 'types/timer'
 import React from 'react'
-import settings from 'api/settings'
+import settings, { defaultSettings, isSettingName, Settings } from 'api/settings'
 import slack from 'api/slack'
 import { useEffect } from 'react'
 import { useTimer } from 'core/timer'
@@ -106,6 +106,18 @@ export function useMediator () {
         } else {
           ipcRenderer.send('set-timer', timeLeft)
         }
+      },
+      onSaveSettings (newSettings: Settings) {
+        // Save each setting from with a fallback to default settings.
+        for (const [name, value] of Object.entries(newSettings)) {
+          if (isSettingName(name)) {
+            settings.set(name, value || defaultSettings[name])
+          }
+        }
+
+        notifications.notify({
+          body: 'Settings saved!'
+        })
       }
     }
     // eslint-disable-next-line

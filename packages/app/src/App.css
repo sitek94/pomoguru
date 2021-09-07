@@ -5,6 +5,9 @@
   --dark-grey: #595959;
   --light-grey: #bbbbbb;
   --lightest-grey: #d9d9d9;
+  --green: #10b981;
+  --dark-green: #059669;
+  --red: #ef4444;
 
   --window-background: var(--black);
   --text-color: var(--white);

@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 import Home from 'features/Home'
 import SlackInstalation from 'features/SlackInstalation'
+import Settings from 'features/Settings'
 
 const Window = styled.main`
   background: var(--window-background);
@@ -21,6 +22,9 @@ function App () {
         <Switch>
           <Route path='/slack-installation'>
             <SlackInstalation />
+          </Route>
+          <Route path='/settings'>
+            <Settings />
           </Route>
           <Route path='/'>
             <Home />

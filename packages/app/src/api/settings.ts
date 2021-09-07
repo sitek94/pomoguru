@@ -3,27 +3,41 @@ type SettingName =
   | 'focus-time-duration-in-seconds'
   | 'break-time-duration-in-seconds'
 
-const defaultSettings = {
+export const defaultSettings = {
   'focus-time-duration-in-seconds': 1500,
-  'break-time-duration-in-seconds': 300
+  'break-time-duration-in-seconds': 300,
+}
+export type Settings = typeof defaultSettings
+
+/**
+ * SettingName type guard
+ */
+export function isSettingName (name: string): name is SettingName {
+  return name in defaultSettings
 }
 
-function saveSettings (settings: object) {
+function saveSettings (settings: Settings) {
   localStorage.setItem(settingsKey, JSON.stringify(settings))
 }
 
-function readSettings () {
+export function readSettings () {
   const settings = localStorage.getItem(settingsKey)
 
   if (settings) {
-    return JSON.parse(settings)
+    const parsedSettings: Settings = JSON.parse(settings);
+    
+    if (typeof parsedSettings === 'object') {
+      return {
+        ...defaultSettings,
+        ...parsedSettings,
+      };
+    }
   }
-
-  return {}
+  return defaultSettings;
 }
 
 const api = {
-  set (name: SettingName, value: number | string | boolean) {
+  set (name: SettingName, value: number) {
     const settings = readSettings()
     settings[name] = value
     saveSettings(settings)
