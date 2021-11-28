@@ -3,7 +3,7 @@ defaults:
   run:
     working-directory: packages/app
 
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
   release:
