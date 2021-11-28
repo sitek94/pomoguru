@@ -282,6 +282,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.59.tgz#9e34261f30183f9777017a13d185dfac6b899e04"
   integrity sha512-8RkBivJrDCyPpBXhVZcjh7cQxVBSmRk9QM7hOketZzp6Tg79c0N8kkpAIito9bnJ3HCVCHVYz+KHTEbfQNfeVQ==
 
+"@types/qs@^6.9.1":
+  version "6.9.7"
+  resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
+  integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
+
 "@types/range-parser@*":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
